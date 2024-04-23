@@ -17,13 +17,13 @@
     </head>
     <body class="overflow-hidden font-sans antialiased dark:bg-black dark:text-white/50">
        <div style="height: 100vh">
-        <div class="grid grid-flow-col w-full h-full">
-            <div class="flex h-full grid-cols-4  bg-gray-50 dark:bg-gray-800   place-items-start py-4 ">
+        <div class="grid w-full h-full grid-cols-12">
+            <div class="h-full col-span-3 bg-gray-50 dark:bg-gray-800 place-items-start">
                 <x-right-side/>
                 
             </div>
-            <div class=" grid-cols-6 grid place-items-center  bg-gray-200 dark:bg-gray-900 overflow-scroll ">{{$slot}}</div>
-            <div class=" h-full grid-cols-2  bg-gray-50 dark:bg-gray-800    place-items-center">
+            <div class="col-span-8 overflow-scroll bg-gray-200 dark:bg-gray-900">{{$slot}}</div>
+            <div class="h-full col-span-1 bg-gray-50 dark:bg-gray-800 place-items-center">
                 <x-left-side />
             </div>
           </div>
