@@ -5,9 +5,9 @@
 
     <div class="container w-96 bg-slate-400 text-info-content dark:bg-slate-800 dark:text-white">
       
-      <form action="{{ route('customers.update',$customer->id) }}" method="POST"> 
+      <form action="{{ route('customers.store') }}" method="POST"> 
         @csrf
-        @method('PUT')
+        
         <div class="card w-96 bg-neutral text-neutral-content">
           
            

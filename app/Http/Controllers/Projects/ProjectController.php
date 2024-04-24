@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Projects;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Projects\StoreProjectRequest;
+use App\Http\Requests\Projects\UpdateProjectRequest;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Project;
@@ -38,7 +39,8 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
        $data= $request->validated();
-       return $data;
+       Project::create($data);
+       return redirect()->route('projects.index');
     }
 
     /**
@@ -52,17 +54,22 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Project $project )
     {
-        //
+        $users = User::get(['id', 'name']);
+        $customers = Customer::get(['id', 'name']);
+        $categories = Category::get(['id', 'category']);
+        return view('projects.project.update', compact('project','users', 'customers', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+       $data= $request->validated();
+       $project->update($data);
+       return redirect()->route('projects.index');
     }
 
     /**

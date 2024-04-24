@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Projects;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Projects\StoreCustomerRequest;
 use App\Http\Requests\Projects\UpdateCustomerRequest;
 use App\Models\Customer;
 use Illuminate\Http\Request;
@@ -25,15 +26,17 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.customer.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCustomerRequest $request)
     {
-        //
+        $data=$request->validated();
+        Customer::create($data);
+        return redirect()->route('customers.index');
     }
 
     /**
@@ -49,7 +52,7 @@ class CustomerController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Customer $customer)
-    {
+    {$customer;
         return view('projects.customer.edit',compact('customer'));
     }
 
@@ -60,6 +63,7 @@ class CustomerController extends Controller
     {
         $data=$request->validated();
         $customer->update($data);
+        return redirect()->route('customers.index');
     }
 
     /**

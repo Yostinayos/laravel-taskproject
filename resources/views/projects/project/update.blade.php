@@ -1,14 +1,16 @@
-@section('title','store project')
-       
+@section('title',' update project')
+
 <x-app-layout >
+
+
 
 
 <div class="container mt-3">
     <h2>create project</h2>
 
-    <form action="{{ route('projects.store') }}" method="POST">
+    <form action="{{ route('projects.update',$project) }}" method="POST">
         @csrf
-
+        @method('PUT')
         <input class="form-control form-control-lg" name='name' placeholder="name" type="text">
         <br>
         <input class="form-control mt-3" name='description' placeholder="description" type="text"><br>

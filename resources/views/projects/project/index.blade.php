@@ -1,5 +1,7 @@
-@extends('ourlayouts.main')
-@section('main')
+@section('title','projects')
+       
+<x-app-layout >
+
     @foreach ($projects as $project)
         {{ $project->name }}
         <br>
@@ -17,11 +19,15 @@
             <br />
             {{ $project->ending_date }}
             <br />
-            <form action="{{ route('projects.delete', $project) }}" method="post">
-                @csrf
-                @method('delete')
-                <button><i class="fa fa-trash text-red-500"></i></button>
-            </form>
+            <div class="col-span-2 mr-2">
+                    
+                <a href='{{route("projects.show", $project->id)}}' class='btn btn-neutral'>
+                    <i class="fa fa-eye"></i>
+                </a>
+                
+            
+        </div>
+           
         
         @endforeach
-    @endsection
+        </x-app-layout >

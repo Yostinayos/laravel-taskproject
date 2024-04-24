@@ -23,7 +23,7 @@ class UpdateCustomerRequest extends FormRequest
     {
         return [
             'name'=>'sometimes|string',
-            'email'=>'sometimes|email|unique',
+            'email'=>'sometimes|email',
             'phone'=>'sometimes|string',
             'phone2'=>'sometimes|string',
         ];
