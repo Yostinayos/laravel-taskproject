@@ -6,7 +6,7 @@
 
 
 <div class="container mt-3">
-    <h2>create project</h2>
+    <h2>edit project</h2>
 
     <form action="{{ route('projects.update',$project) }}" method="POST">
         @csrf
@@ -42,7 +42,7 @@
 
         </select><br>
 
-        <button>Add</button>
+        <button class='btn btn-neutral'>Add</button>
     </form>
 </div>
 </x-app-layout >
