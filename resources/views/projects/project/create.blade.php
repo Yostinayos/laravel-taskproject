@@ -1,51 +1,57 @@
-@section('title','store project')
-       
-<x-app-layout >
+@section('title', 'store project')
+
+<x-app-layout>
 
 
-<div class="container mt-3 py-3 px-4">
-   <strong >create project</strong>
+    <div class="flex flex-col gap-4 px-4 py-3 mx-auto mt-10 card">
+        <h2 class="w-full text-4xl text-center text-gray-900">Create Project</h2>
 
-    <form action="{{ route('projects.store') }}" method="POST">
-        @csrf
-        <div class="mt-3">{project name}</div>
-        <input class="form-control form-control-lg " name='name' placeholder="name" type="text">
-        <br>
-        {description}
-        <input class="form-control mt-3" name='description' placeholder="description" type="text"><br>
-        {starting_date}
-        <input class="form-control mt-3" name='starting_date' placeholder="starting_date" type="date"><br>
-        {ending_date}
-        <input class="form-control mt-3" name='ending_date' placeholder="ending_date" type="date"><br>
-{leader name}
-        <select class="form-control mt-3" name="user_id">
-            <option>Select a user</option>
+        <form action="{{ route('projects.store') }}"
+            class="flex flex-row items-start justify-start gap-6 p-4 mt-4 bg-white form-control dark:bg-gray-900 rounded-2xl"
+            method="POST">
+            @csrf
+            <div class="flex flex-col gap-3">
+                <label class="w-full max-w-xs form-control">Name
+                    <input type="text" placeholder="Type here"
+                        class="w-full max-w-xs mt-2 text-black bg-gray-200 dark:bg-gray-600 input input-bordered" />
+                </label>
+                <label class="w-full max-w-xs form-control">Name
+                    <input type="text" placeholder="Type here"
+                        class="w-full max-w-xs mt-2 text-black bg-gray-200 dark:bg-gray-600 input input-bordered" />
+                </label>
+                <label class="w-full max-w-xs form-control">Name
+                    <input type="text" placeholder="Type here"
+                        class="w-full max-w-xs mt-2 text-black bg-gray-200 dark:bg-gray-600 input input-bordered" />
+                </label>
+            </div>
 
-            @foreach ($users as $user)
-                <option value="{{ $user->id }}">{{ $user->name }}</option>
-            @endforeach
+            <div class="flex flex-col gap-3 flex-nowrap md:flex-row grow">
+                <label class="w-full max-w-xs form-control ">Select <br />
+                    <select class="w-full max-w-xs mt-3 bg-gray-200 dark:bg-gray-600 select ">
+                        <option disabled class="" selected>Select language</option>
+                        <option class="text-gray-500">English</option>
+                        <option class="text-gray-500">Japanese</option>
+                        <option class="text-gray-500">Italian</option>
+                    </select> </label>
+                <label class="w-full max-w-xs form-control ">Select <br />
+                    <select class="w-full max-w-xs mt-3 bg-gray-200 dark:bg-gray-600 select ">
+                        <option disabled class="" selected>Select language</option>
+                        <option class="text-gray-500">English</option>
+                        <option class="text-gray-500">Japanese</option>
+                        <option class="text-gray-500">Italian</option>
+                    </select> </label>
+                    
 
-        </select><br>
-        {customer name}
-        <select class="form-control mt-3" name="customer_id">
-            <option>Select a customer</option>
+               
+            </div>
 
-            @foreach ($customers as $customer)
-                <option value="{{ $customer->id }}">{{ $customer->name }}</option>
-            @endforeach
+            <div
+                class="flex flex-row flex-wrap items-center justify-center gap-4 my-auto md:flex-col md:flex-nowrap mx-autofloat-end">
+                <button class="btn btn-accent md:btn-wide ">Create</button>
+                <a href="projects" class="btn btn-info md:btn-wide ">Project List</a>
+                <a href="customers/create" class="btn btn-warning md:btn-wide ">Add New Customer</a>
+            </div>
 
-        </select><br>
-        {category }
-        <select class="form-control mt-3" name="category_id">
-            <option>Select a category</option>
-
-            @foreach ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->category }}</option>
-            @endforeach
-
-        </select><br>
-
-        <button class='btn btn-neutral'>Add</button>
-    </form>
-</div>
-</x-app-layout >
+        </form>
+    </div>
+</x-app-layout>

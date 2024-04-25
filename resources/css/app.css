@@ -11,6 +11,35 @@
     justify-content: center;
     align-items: center;
 }
+body{
+    background: #F3F5F9;
+}
+
+.bg-dark-1{
+    background-color: #474362;
+}
+.bg-dark-2{
+    background-color: #ACA9BB
+}
+.bg-dark-3{
+    background-color: #3c3b40;
+}
+.blue{
+    background-color: #2169B1;
+}
+.green{
+    background: #a0e89a;
+}
+
+.card-1{
+    background: #f7c5a1b7;
+}
+.card-2{
+    background: #ddacf5c5;
+}
+.bg-basic{
+    background-color: #ACD1F536;
+}
 
 /* Hide scrollbar track */
 ::-webkit-scrollbar {
