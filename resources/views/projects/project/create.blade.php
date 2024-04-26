@@ -8,7 +8,7 @@
 
     <form action="{{ route('projects.store') }}" method="POST">
         @csrf
-        <div class="mt-3">{project name}</div>
+        <div class="mt-3">{project name}git</div>
         <input class="form-control form-control-lg " name='name' placeholder="name" type="text">
         <br>
         {description}
