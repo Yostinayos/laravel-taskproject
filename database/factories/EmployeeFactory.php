@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class EmployeeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name'=>fake()->name(),
+'position'=>fake()->name(),
+'salary'=>fake()->numberBetween(10000,100000),
+'user_id'=>User::all()->random()->id,
         ];
     }
 }
