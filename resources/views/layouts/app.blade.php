@@ -18,12 +18,12 @@
     <body class="overflow-hidden font-sans antialiased dark:bg-black dark:text-white/50">
        <div style="height: 100vh">
         <div class="grid w-full h-full grid-cols-12">
-            <div class="h-full col-span-3 bg-gray-50 dark:bg-gray-800 place-items-start">
+            <div class="h-full col-span-3 px-2 py-2 bg-white rounded-md dark:bg-gray-900 place-items-start">
                 <x-right-side/>
                 
             </div>
-            <div class="col-span-8 overflow-scroll bg-gray-200 dark:bg-gray-900">{{$slot}}</div>
-            <div class="h-full col-span-1 bg-gray-50 dark:bg-gray-800 place-items-center">
+            <div class="col-span-8 overflow-scroll bg-inherit dark:bg-gray-600">{{$slot}}</div>
+            <div class="h-full col-span-1 bg-white dark:bg-gray-900 place-items-center">
                 <x-left-side />
             </div>
           </div>
