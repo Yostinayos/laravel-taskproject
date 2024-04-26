@@ -32,7 +32,8 @@
                 <option value="{{ $customer->id }}">{{ $customer->name }}</option>
             @endforeach
 
-        </select><br>
+        </select> 
+        <br>
         <select class="form-control mt-3" name="category_id">
             <option>Select a category</option>
 
