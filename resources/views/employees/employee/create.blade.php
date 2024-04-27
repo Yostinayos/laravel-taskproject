@@ -13,22 +13,25 @@
             method="POST">
             @csrf
             <div class="flex flex-col gap-3">
-                <div class="flex flex-col gap-3 flex-wrap md:flex-row grow">
+                <div class="flex flex-col flex-wrap gap-3 md:flex-row grow">
                     <label class="w-full max-w-xs form-control ">Select name<br />
                         
                             
-                        <div class="flex flex-col gap-3 flex-wrap md:flex-row grow">
+                        <div class="flex flex-col flex-wrap gap-3 md:flex-row grow">
                             <label class="w-full max-w-xs form-control ">Select name<br />
-                                <select class="w-full max-w-xs mt-3 bg-gray-200 dark:bg-gray-600 select " name='user'>
+                                <select class="w-full max-w-xs mt-3 bg-gray-200 dark:bg-gray-600 select " name='user_id'>
                                     <option disabled class="" selected> Select name</option>
                                     @foreach ($users as $user)
-                            <option class="text-gray-500"  value="{{$user }}">{{ $user->name }}</option>
-                            @error('user_id')
+                            <option class="text-gray-500"  value="{{$user->id}}">{{ $user->name }}</option>
+                            {{-- @error('user_id')
                             <p class="text-red-600">{{ $message }}</p>
-                             @enderror
+                             @enderror --}}
                         @endforeach
                                     
-                                </select> </label>
+                                </select>
+                                <x-input-error :messages="$errors->get('user_id')" class="mt-2" />
+                                  
+                            </label>
                         </div>
                 <label class="w-full max-w-xs form-control">Position
                     <input type="text" name='position' placeholder="position" value="{{ @old('position') }}"

@@ -7,12 +7,12 @@
                 <h2 class="card-title">Projects!</h2>
                 <p class="text-gray-950 dark:text-white">98</p>
                 <div class="justify-end card-actions">
-                  <a href="projects">
+                  <a href="/projects">
                     <button class="text-white border-none btn blue">List</button>
                   </a>
                   <a href="projects/create">
                     <button class="text-white border-none btn green dark:text-white">Create</button>
-                  </a>              
+                  </a>           
                   </div>
             </div>
         </div>

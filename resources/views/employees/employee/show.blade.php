@@ -11,24 +11,25 @@
     <hr>
     {{$employee->salary}}
     <hr>
-    <div class="col-span-2 mr-2 mt-3 mb-4">
+    <div class="col-span-2 mt-3 mb-4 mr-2">
                     
         <a href='{{route("employees.edit", $employee->id)}}' class='btn btn-neutral'>
             <i class="fa fa-pencil"></i>
         </a>
 
 
-        <form action="{{route("employees.destroy", $employee->id)}}" method="post" class='btn btn-neutral'>
+        <form action="{{route("employees.destroy", $employee->id)}}" method="post" class="inline-block" >
             @csrf
             @method('DELETE')
-            <i class="fa fa-trash"></i></form>
+        <button class='btn btn-neutral'> <i class="fa fa-trash"></i></button>    
+        </form>
       
 
 
         
         @if ($errors->any())
         @foreach ($errors->all() as $error )
-            <p class="alert bg-red-300 text-red-900">{{ $error }}</p>
+            <p class="text-red-900 bg-red-300 alert">{{ $error }}</p>
         @endforeach
     @endif
 </div>

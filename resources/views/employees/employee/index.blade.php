@@ -11,12 +11,12 @@
     <hr>
     {{$employee->salary}}
     <hr>
-    <div class="col-span-2 mr-2 mt-3 mb-4">
+    <div class="col-span-2 mt-3 mb-4 mr-2">
                     
         <a href='{{route("employees.show", $employee->id)}}' class='btn btn-neutral'>
             <i class="fa fa-eye"></i>
         </a>
-        
+
     
 </div>
     @endforeach
