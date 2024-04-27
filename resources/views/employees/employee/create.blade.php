@@ -15,23 +15,14 @@
             <div class="flex flex-col gap-3">
                 <div class="flex flex-col gap-3 flex-wrap md:flex-row grow">
                     <label class="w-full max-w-xs form-control ">Select name<br />
-                        <select class="w-full max-w-xs mt-3 bg-gray-200 dark:bg-gray-600 select ">
-                            <option disabled class="" selected> Select name </option>
-                            @foreach ($users as $user)
-                    <option class="text-gray-500" value="{{ $user->name }}
-                        name='name'">{{ $user->name }}</option>
-                    @error('name')
-                    <p class="text-red-600">{{ $message }}</p>
-                     @enderror
-                @endforeach
+                        
                             
-                        </select> </label>
                         <div class="flex flex-col gap-3 flex-wrap md:flex-row grow">
                             <label class="w-full max-w-xs form-control ">Select name<br />
-                                <select class="w-full max-w-xs mt-3 bg-gray-200 dark:bg-gray-600 select ">
+                                <select class="w-full max-w-xs mt-3 bg-gray-200 dark:bg-gray-600 select " name='user'>
                                     <option disabled class="" selected> Select name</option>
                                     @foreach ($users as $user)
-                            <option class="text-gray-500" name='user_id' value="{{ $user->id }}">{{ $user->name }}</option>
+                            <option class="text-gray-500"  value="{{$user }}">{{ $user->name }}</option>
                             @error('user_id')
                             <p class="text-red-600">{{ $message }}</p>
                              @enderror

@@ -22,10 +22,11 @@ class StoreEmployeeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required|string',
+            'user'=>'required',
+            'user.id'=>'required|exists:users,id',
+            'user.name'=> 'required',
             'position'=>'required|string',
             'salary'=>'required|integer',
-            'user_id'=>'required|exists:users,id',
         ];
     }
 }

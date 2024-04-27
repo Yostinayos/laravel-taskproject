@@ -33,11 +33,25 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreEmployeeRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
-        $employee=Employee::create($data);
-        if ( $employee){
+        $data = $request; //->validated();
+        $newEmp = new Employee();
+        $newEmp->name = $data->user['name'];
+        $newEmp->id = $data->user['id'];
+        $newEmp->salary = $data['salary'];
+        $newEmp->position = $data['position'];
+            $save = $newEmp->save();
+         //[
+        //     'name' => $data['user']['name'],
+        //     'salary' => $data->salary,
+        //     'position' => $data->position,
+        //     'user_id' => $data['user']['id'],
+        // ];
+        // dd($newEmp);
+        // $employee=Employee::create($newEmp);
+        if ( $save){
+            // return 'hi';
             return redirect()->route('employees.index')->with('success','employee Created Successfully');
         }
 
