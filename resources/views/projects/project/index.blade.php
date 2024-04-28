@@ -7,6 +7,6 @@
         $columns = ['name', 'description', 'starting_date', 'ending_date'];
     @endphp
 
-    <x-data-table :data="$projects" :columns="$columns" />
+    <x-data-table :data="$projects" :columns="$columns" route='projects' />
 
 </x-app-layout>
