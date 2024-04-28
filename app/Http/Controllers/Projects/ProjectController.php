@@ -30,7 +30,10 @@ class ProjectController extends Controller
         $users = User::get(['id', 'name']);
         $customers = Customer::get(['id', 'name']);
         $categories = Category::get(['id', 'category']);
-        return view('projects.project.create', compact('users', 'customers', 'categories'));
+        $project = new Project();
+        $isUpdate=false;
+
+        return view('projects.project.create', compact('isUpdate','users', 'customers', 'categories','project'));
     }
 
     /**
@@ -56,10 +59,11 @@ class ProjectController extends Controller
      */
     public function edit(Project $project )
     {
+        $isUpdate=true;
         $users = User::get(['id', 'name']);
         $customers = Customer::get(['id', 'name']);
         $categories = Category::get(['id', 'category']);
-        return view('projects.project.edit', compact('project','users', 'customers', 'categories'));
+        return view('projects.project.create', compact('isUpdate','project','users', 'customers', 'categories'));
     }
 
     /**

@@ -1,13 +1,13 @@
 
   @props(['data', 'columns','route'])
-  <div class="overflow-x-auto">
+  <div class="p-3 overflow-x-auto">
 <table class="table">
     <thead>
         <tr>
             @foreach($columns as $column)
-                <th>{{ ucfirst($column) }}</th>
+                <th class="font-bold dark:text-white">{{ ucfirst($column) }}</th>
             @endforeach
-            <th>Action</th>
+            <th class="font-bold dark:text-white">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +18,7 @@
             @endforeach
             <td>
                 <a>
-                    <a href='{{route($route.'.show', $item->id)}}' class='btn btn-neutral'>
+                    <a href='{{route($route.'.show', $item->id)}}' class='btn btn-primary'>
                         <i class="fa fa-eye"></i>
                     </a>
                 </a>
