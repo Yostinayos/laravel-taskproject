@@ -1,4 +1,7 @@
-// darkmode
+// darkmode        
+export const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+
 document.addEventListener('DOMContentLoaded', function() {
     function toggleDarkMode() {
         const isDarkMode = localStorage.getItem('darkMode') === 'true';
@@ -18,7 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (isDarkMode) {
         document.documentElement.classList.add('dark');
         darkModeToggle.innerText = 'Light Mode';
+        console.log(isDarkMode);
     } else {
         darkModeToggle.innerText = 'Dark Mode';
+        console.log(isDarkMode);
     }
 });
+
+
