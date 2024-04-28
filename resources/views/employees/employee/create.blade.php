@@ -14,7 +14,7 @@
             @csrf
             <div class="flex flex-col gap-3">
                 <div class="flex flex-col flex-wrap gap-3 md:flex-row grow">
-                    <label class="w-full max-w-xs form-control ">Select name<br />
+                    <label class="w-full max-w-xs form-control "><br />
                         
                             
                         <div class="flex flex-col flex-wrap gap-3 md:flex-row grow">
@@ -36,14 +36,16 @@
                 <label class="w-full max-w-xs form-control">Position
                     <input type="text" name='position' placeholder="position" value="{{ @old('position') }}"
                         class="w-full max-w-xs mt-2 text-black bg-gray-200 dark:bg-gray-600 input input-bordered" />
-                </label>
+                        <x-input-error :messages="$errors->get('position')" class="mt-2" />
+                    </label>
                 @error('position')
                 <p class="text-red-600">{{ $message }}</p>
                  @enderror
                 <label class="w-full max-w-xs form-control">Salary 
                     <input type="text" name='salary' placeholder="salary" value="{{ @old('salary') }}"
                         class="w-full max-w-xs mt-2 text-black bg-gray-200 dark:bg-gray-600 input input-bordered" />
-                </label>
+                        <x-input-error :messages="$errors->get('salary')" class="mt-2" />
+                    </label>
                 @error('salary')
                 <p class="text-red-600">{{ $message }}</p>
                  @enderror

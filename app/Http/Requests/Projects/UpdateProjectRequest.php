@@ -22,13 +22,13 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'sometimes|string',
-            'description'=>'sometimes|string',
-            'user_id'=>'sometimes|exists:users,id',
-            'customer_id'=>'sometimes|exists:customers,id',
-            'starting_date'=>'sometimes|date',
-            'ending_date'=>'sometimes|date',
-            'category_id'=>'sometimes|exists:categories,id'
+            'name'=>'string',
+            'description'=>'string',
+            'user_id'=>'exists:users,id',
+            'customer_id'=>'exists:customers,id',
+            'starting_date'=>'date',
+            'ending_date'=>'date',
+            'category_id'=>'exists:categories,id'
         ];
     }
 }

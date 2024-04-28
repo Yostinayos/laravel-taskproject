@@ -1,15 +1,16 @@
-@section('title', 'store project')
+@section('title', 'edit project')
 
 <x-app-layout>
 
 
     <div class="flex flex-col gap-4 px-4 py-3 mx-auto mt-10 card">
-        <h2 class="w-full text-4xl text-center text-gray-900">Create Project</h2>
+        <h2 class="w-full text-4xl text-center text-gray-900">edit Project</h2>
 
-        <form action="{{ route('projects.store') }}"
+        <form action="{{ route('projects.update',$project->id) }}"
             class="flex flex-row items-start justify-start gap-6 p-4 mt-4 bg-white form-control dark:bg-gray-900 rounded-2xl"
             method="POST">
             @csrf
+            @method('put')
             <div class="flex flex-col gap-3">
                 <label class="w-full max-w-xs form-control">Name
                     <input type="text" name='name' placeholder="name" value="{{ @old('name') }}"

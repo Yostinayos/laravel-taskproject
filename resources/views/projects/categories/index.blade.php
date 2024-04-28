@@ -8,7 +8,9 @@ category : {{ $category->category }}
     @csrf
     @method('delete')
     <button><i class="fa fa-trash"></i></button>
+
 </form>
     <br>
 @endforeach
+<a href={{ route("categories.create")}} class="btn btn-info md:btn-wide "> Create category </a>
 </x-app-layout>

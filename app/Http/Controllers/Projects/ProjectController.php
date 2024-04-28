@@ -59,7 +59,7 @@ class ProjectController extends Controller
         $users = User::get(['id', 'name']);
         $customers = Customer::get(['id', 'name']);
         $categories = Category::get(['id', 'category']);
-        return view('projects.project.update', compact('project','users', 'customers', 'categories'));
+        return view('projects.project.edit', compact('project','users', 'customers', 'categories'));
     }
 
     /**

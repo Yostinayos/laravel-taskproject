@@ -18,14 +18,24 @@ class CategoryController extends Controller
     }
     public function store(CategoryRequest $request){
         $data = $request->validated();
-        Category::create($data);
-        return redirect()->route('categories.index');
-        
+        $category= Category::create($data);
+        if ( $category){
+            return redirect()->route('categories.index')->with('success','category Created Successfully');
+        }
+
+    return back()->withErrors('category not Created');
     }
+        
+    
     
     public function destroy(Category $category){
         
-        $category->delete();
-        return redirect()->route('categories.index');
+     $category=$category->delete();
+        
+        if ( $category){
+            return redirect()->route('categories.index')->with('success','category Created Successfully');
+        }
+
+    return back()->withErrors('category not deleted');
     }
 }
