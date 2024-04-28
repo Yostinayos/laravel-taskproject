@@ -23,7 +23,7 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'name'=>'sometimes|string',
-            'description'=>'sometimes|string',
+            'description'=>'sometimes|string|min:3',
             'user_id'=>'sometimes|exists:users,id',
             'customer_id'=>'sometimes|exists:customers,id',
             'starting_date'=>'sometimes|date',
