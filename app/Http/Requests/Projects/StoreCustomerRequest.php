@@ -25,7 +25,7 @@ class StoreCustomerRequest extends FormRequest
             'name'=>'required|string',
         'email'=>'required|email|unique:customers,email',
         'phone'=>'required|string',
-        'phone2'=>'sometimes|string',
+        'phone2'=>'sometimes',
         ];
     }
 }

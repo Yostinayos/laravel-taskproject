@@ -18,8 +18,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects= Project::with('user','customer')->get();
-        return view('projects.project.index',compact('projects'));
+        $projects = Project::with('user', 'customer')->get();
+        return view('projects.project.index', compact('projects'));
     }
 
     /**
@@ -31,9 +31,9 @@ class ProjectController extends Controller
         $customers = Customer::get(['id', 'name']);
         $categories = Category::get(['id', 'category']);
         $project = new Project();
-        $isUpdate=false;
+        $isUpdate = false;
 
-        return view('projects.project.create', compact('isUpdate','users', 'customers', 'categories','project'));
+        return view('projects.project.create', compact('isUpdate', 'users', 'customers', 'categories', 'project'));
     }
 
     /**
@@ -41,29 +41,30 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-       $data= $request->validated();
-       Project::create($data);
-       return redirect()->route('projects.index');
+        $data = $request->validated();
+        Project::create($data);
+        return redirect()->route('projects.index')->with('success', 'Project created successfully');
     }
 
     /**
      * Display the specified resource.
      */
     public function show(Project $project)
-    {$project= Project::with('user','customer')->where('id',$project->id)->first();
+    {
+        $project = Project::with('user', 'customer')->where('id', $project->id)->first();
         return view('projects.project.show', compact('project'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project )
+    public function edit(Project $project)
     {
-        $isUpdate=true;
+        $isUpdate = true;
         $users = User::get(['id', 'name']);
         $customers = Customer::get(['id', 'name']);
         $categories = Category::get(['id', 'category']);
-        return view('projects.project.create', compact('isUpdate','project','users', 'customers', 'categories'));
+        return view('projects.project.create', compact('isUpdate', 'project', 'users', 'customers', 'categories'));
     }
 
     /**
@@ -71,9 +72,9 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-       $data= $request->validated();
-       $project->update($data);
-       return redirect()->route('projects.index')->with('success','employee Updated Successfully');
+        $data = $request->validated();
+        $project->update($data);
+        return redirect()->route('projects.index')->with('success', 'project Updated Successfully');
     }
 
     /**
@@ -82,6 +83,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return redirect()->route('projects.index')->with('success', 'Task deleted successfully');
+        return redirect()->route('projects.index')->with('success', 'project deleted successfully');
     }
 }

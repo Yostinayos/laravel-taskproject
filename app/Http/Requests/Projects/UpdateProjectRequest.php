@@ -23,11 +23,11 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'name'=>'sometimes|string',
-            'description'=>'sometimes|string|min:3',
+            'description'=>'sometimes|string',
             'user_id'=>'sometimes|exists:users,id',
             'customer_id'=>'sometimes|exists:customers,id',
             'starting_date'=>'sometimes|date',
-            'ending_date'=>'sometimes|date',
+            'ending_date'=>'sometimes|date|after:starting_date',
             'category_id'=>'sometimes|exists:categories,id'
         ];
     }

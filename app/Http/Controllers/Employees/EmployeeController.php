@@ -26,8 +26,11 @@ class EmployeeController extends Controller
      */
     public function create()
     {
+        $isUpdate = false;
+        $employee = new Employee();
         $users = User::get(['id', 'name']);
-        return view('employees.employee.create', compact('users'));
+        $isUpdate = false;
+        return view('employees.employee.create', compact('users', 'isUpdate', 'employee'));
     }
 
     /**
@@ -35,23 +38,22 @@ class EmployeeController extends Controller
      */
     public function store(StoreEmployeeRequest $request)
     {
-        $formData= $request->validated();
+        $formData = $request->validated();
         $user = User::findOrFail($formData['user_id']);
-        if($user){
+        if ($user) {
             $formData['name'] = $user->name;
-        
-        $employee=Employee::create($formData);
-        if ($employee){
-            // return 'hi';
-            return redirect()->route('employees.index')->with('success','employee Created Successfully');
-        }
-        return back()->withErrors(['y' => 'youstina']);
+
+            $employee = Employee::create($formData);
+            if ($employee) {
+                
+                return redirect()->route('employees.index')->with('success', 'employee Created Successfully');
+            }
+            return back()->withErrors(['y' => 'youstina']);
         }
 
-    
+
 
         return back()->withErrors(['y' => 'youstina']);
-        
     }
 
     /**
@@ -68,9 +70,10 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        $employee;
+        $isUpdate = true;
+
         $users = User::get(['id', 'name']);
-        return view('employeess.employee.edit', compact('employee', 'users'));
+        return view('employees.employee.create', compact('employee', 'users', 'isUpdate'));
     }
 
     /**
@@ -79,8 +82,10 @@ class EmployeeController extends Controller
     public function update(UpdateEmployeeRequest $request, Employee $employee)
     {
         $data = $request->validated();
-        $employee->update($data);
-        return redirect()->route('employees.index');
+        $employee= $employee->update($data);
+        if ($employee) {
+        return redirect()->route('employees.index')->with('success','employee Created Successfully');}
+        return back()->withErrors('employee Update Failed');
     }
 
     /**
@@ -88,15 +93,14 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        $employee=$employee->delete();
-        
-        if ( $employee){
-            return redirect()->route('employees.index')->with('success','employee Created Successfully');
+        $employee = $employee->delete();
+
+        if ($employee) {
+            return redirect()->route('employees.index')->with('success', 'employee deleted Successfully');
         }
 
-    
 
-    return back()->withErrors('employee not deleted');
-        
+
+        return back()->withErrors('employee not deleted');
     }
 }

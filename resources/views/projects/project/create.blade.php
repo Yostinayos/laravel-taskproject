@@ -4,7 +4,7 @@
 
 
     <div class="flex flex-col gap-4 px-4 py-3 mx-auto mt-10 card">
-        <h2 class="w-full text-4xl text-center text-gray-900">Create Project</h2>
+        <h2 class="w-full text-4xl text-center text-gray-900">{{$isUpdate? 'Update Project':'Create Project' }}</h2>
 
         <form action="{{ $isUpdate ?  route('projects.update',$project) : route('projects.store') }}"
             class="flex flex-row items-start justify-start gap-6 p-4 mt-4 bg-white form-control dark:bg-gray-900 rounded-2xl"

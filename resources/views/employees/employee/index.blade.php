@@ -1,24 +1,19 @@
 
-@section('title', ' employees')
+
+
+@section('title', 'employees')
 
 <x-app-layout>
+    <h2 class='px-4 py-3 mt-3'>All Employees</h2>
+ @if(session('success'))
+ <h3 class="alert alert-success"> {{ session('success')}}
+      
+ </h3>
+ @endif
+    @php
+        $columns = ['name',',','position','salary'];
+    @endphp
 
-
-    @foreach($employees as $employee)
-    {{$employee->name}}
-    <hr>
-    {{$employee->position}}
-    <hr>
-    {{$employee->salary}}
-    <hr>
-    <div class="col-span-2 mt-3 mb-4 mr-2">
-                    
-        <a href='{{route("employees.show", $employee->id)}}' class='btn btn-neutral'>
-            <i class="fa fa-eye"></i>
-        </a>
-
-    
-</div>
-    @endforeach
+    <x-data-table :data="$employees" :columns="$columns" route='employees' />
 
 </x-app-layout>

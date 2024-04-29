@@ -15,10 +15,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers= Customer::with('projects')->get();
-        
-        return view('projects.customer.index',compact('customers'));
-        
+        $customers = Customer::with('projects')->get();
+
+        return view('projects.customer.index', compact('customers'));
     }
 
     /**
@@ -26,7 +25,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('projects.customer.create');
+        $isUpdate = false;
+        $customer = new Customer();
+        return view('projects.customer.create', compact('isUpdate', 'customer'));
     }
 
     /**
@@ -34,9 +35,13 @@ class CustomerController extends Controller
      */
     public function store(StoreCustomerRequest $request)
     {
-        $data=$request->validated();
-        Customer::create($data);
-        return redirect()->route('customers.index');
+        $data = $request->validated();
+        $customer = Customer::create($data);
+        if ($customer) {
+            return redirect()->route('customers.index')->with('success', 'Customer created successfully');
+        } 
+            return back()->withErrors('Customer not created')->with('fail', 'Customer not created');
+        
     }
 
     /**
@@ -44,16 +49,18 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        $customer= Customer::with('projects')->where('id',$customer->id)->first();  
-        return view('projects.customer.show',compact('customer'));
+        $customer = Customer::with('projects')->where('id', $customer->id)->first();
+        return view('projects.customer.show', compact('customer'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Customer $customer)
-    {$customer;
-        return view('projects.customer.edit',compact('customer'));
+    {
+        $isUpdate = true;
+
+        return view('projects.customer.create', compact('customer', 'isUpdate', 'customer'));
     }
 
     /**
@@ -61,9 +68,9 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
-        $data=$request->validated();
+        $data = $request->validated();
         $customer->update($data);
-        return redirect()->route('customers.index');
+        return redirect()->route('customers.index')->with('success', 'Customer updated successfully');
     }
 
     /**
@@ -72,6 +79,6 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         $customer->delete();
-        return redirect()->route('customers.index');
+        return redirect()->route('customers.index')->with('success', 'Customer deleted successfully');
     }
 }

@@ -33,13 +33,13 @@
     </div>
     <div class="text-gray-400 bg-white card w-96 dark:bg-gray-900 dark:text-white">
       <div class="items-center text-center card-body">
-          <h2 class="card-title">Projects!</h2>
+          <h2 class="card-title">Employees!</h2>
           <p class="text-gray-950 dark:text-white">98</p>
           <div class="justify-end card-actions">
-            <a href="projects">
+            <a href="employees">
               <button class="text-white border-none btn blue">List</button>
             </a>
-            <a href="projects/create">
+            <a href="employees/create">
               <button class="text-white border-none btn green dark:text-white">Create</button>
             </a>              
             </div>

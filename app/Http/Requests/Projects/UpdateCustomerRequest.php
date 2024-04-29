@@ -25,7 +25,7 @@ class UpdateCustomerRequest extends FormRequest
             'name'=>'sometimes|string',
             'email'=>'sometimes|email',
             'phone'=>'sometimes|string',
-            'phone2'=>'sometimes|string',
+            'phone2'=>'sometimes',
         ];
     }
 }
