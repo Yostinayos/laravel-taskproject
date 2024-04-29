@@ -69,8 +69,10 @@ class CustomerController extends Controller
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
         $data = $request->validated();
-        $customer->update($data);
-        return redirect()->route('customers.index')->with('success', 'Customer updated successfully');
+       $customer= $customer->update($data);
+       if($customer){
+        return redirect()->route('customers.index')->with('success', 'Customer updated successfully');}
+        return back()->withErrors('Customer not updated')->with(['fail'=>'Customer not updated']);
     }
 
     /**
@@ -78,7 +80,10 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        $customer->delete();
+       $customer= $customer->delete();
+       if($customer){
         return redirect()->route('customers.index')->with('success', 'Customer deleted successfully');
+       }
+       return back()->withErrors('customer not deleted');
     }
 }

@@ -17,15 +17,20 @@
             @if($isUpdate)
             @method('PUT')
         @endif
-            <div class="flex flex-col gap-3">
-                <label class="w-full max-w-xs form-control ">Select name<br />
-                    <select class="w-full max-w-xs mt-3 bg-gray-200 dark:bg-gray-600 select " name='user_id'>
-                        <option disabled class="" selected> Select name</option>
-                        @foreach ($users as $user)
-                <option class="text-gray-500"  value="{{$user->id}}">{{ $user->name }}</option>
-                
-            @endforeach
-                        
+            {{-- <div class="flex flex-col gap-3"> --}}
+                <div class="flex flex-col flex-wrap gap-3 md:flex-row grow">
+                    
+                    <label class="w-full max-w-xs form-control ">Select Name<br />
+                        <select class="w-full max-w-xs mt-3 bg-gray-200 dark:bg-gray-600 select " name="user_id">
+                            <option disabled class="" selected> Select name</option>
+                            @foreach ($users as $user)
+                            <option {{ old('user_id') ? (old('user_id') == $user->id ? 'selected' : '') : ($employee->user_id == $user->id ? 'selected' : '') }} class="text-gray-500" value="{{ $user->id }}">{{ $user->name }}</option>
+                            @endforeach
+                            
+                        </select> 
+                        <x-input-error :messages="$errors->get('user_id')" class="mt-2" />
+    
+                    </label>
                 <label class="w-full max-w-xs form-control"> Position
                     <input type="text" name='position' placeholder="position" value="{{   @old('position')??$employee->position  }}"
                         class="w-full max-w-xs mt-2 text-black bg-gray-200 dark:bg-gray-600 input input-bordered" />

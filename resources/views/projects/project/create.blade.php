@@ -15,21 +15,27 @@
         @endif
             <div class="flex flex-col gap-3">
                 <label class="w-full max-w-xs form-control">Name
-                    <input type="text" name='name' placeholder="name" value="{{   @old('name')??$project->name  }}"
+                    <input type="text" name='name' placeholder="name" value="{{   @old('c')??$project->name  }}"
                         class="w-full max-w-xs mt-2 text-black bg-gray-200 dark:bg-gray-600 input input-bordered" />
-                </label>
+                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                    </label>
                 <label class="w-full max-w-xs form-control">Description
                     <input type="text" name='description' placeholder="description" value="{{ @old('description')??$project->description }}"
                         class="w-full max-w-xs mt-2 text-black bg-gray-200 dark:bg-gray-600 input input-bordered" />
-                </label>
+                        <x-input-error :messages="$errors->get('description')" class="mt-2" />
+                    </label>
                 <label class="w-full max-w-xs form-control">Starting Date 
                     <input type="date" name='starting_date' placeholder="starting_date" value="{{ @old('starting_date')??$project->starting_date }}"
                         class="w-full max-w-xs mt-2 text-black bg-gray-200 dark:bg-gray-600 input input-bordered" />
-                </label>
+                        <x-input-error :messages="$errors->get('starting_date')" class="mt-2" />
+
+                    </label>
                 <label class="w-full max-w-xs form-control">Ending Date
                     <input type="date" name='ending_date' placeholder="ending_date" value="{{ @old('ending_date')??$project->ending_date }}"
                         class="w-full max-w-xs mt-2 text-black bg-gray-200 dark:bg-gray-600 input input-bordered" />
-                </label>
+                        <x-input-error :messages="$errors->get('ending_date')" class="mt-2" />
+
+                    </label>
             </div>
 
             <div class="flex flex-col flex-wrap gap-3 md:flex-row grow">
@@ -40,7 +46,10 @@
                         <option {{ old('user_id') ? (old('user_id') == $user->id ? 'selected' : '') : ($project->user_id == $user->id ? 'selected' : '') }} class="text-gray-500" value="{{ $user->id }}">{{ $user->name }}</option>
                         @endforeach
                         
-                    </select> </label>
+                    </select> 
+                    <x-input-error :messages="$errors->get('user_id')" class="mt-2" />
+
+                </label>
                 <label class="w-full max-w-xs form-control ">Select customer <br />
                     <select class="w-full max-w-xs mt-3 bg-gray-200 dark:bg-gray-600 select " name="customer_id">
                         <option disabled class="" selected>Select customer</option>
@@ -48,7 +57,9 @@
                         <option {{old('customer_id') ? (old('customer_id') == $customer->id ? 'selected' : '') : ($project->customer_id == $customer->id ? 'selected' : '') }} class="text-gray-500" value="{{ $customer->id }}">{{ $customer->name }}</option>
                     @endforeach
                         
-                    </select> </label>
+                    </select> 
+                    <x-input-error :messages="$errors->get('customer_id')" class="mt-2" />
+                    </label>
                     
                     <label class="w-full max-w-xs form-control ">Select category <br />
                         <select class="w-full max-w-xs mt-3 bg-gray-200 dark:bg-gray-600 select " name="category_id">
@@ -57,7 +68,8 @@
                             <option {{old('category_id') ? (old('category_id') == $category->id ? 'selected' : '') : ($project->category_id == $category->id ? 'selected' : '') }} class="text-gray-500" value="{{ $category->id }}">{{ $category->category }}</option>
                             @endforeach
                             
-                        </select> </label>
+                        </select> 
+                        <x-input-error :messages="$errors->get('category_id')" class="mt-2" /></label>
                         
                
                     </div>
