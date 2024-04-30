@@ -6,7 +6,9 @@ use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Employee;
 use App\Models\Project;
+use App\Models\Role;
 use App\Models\User;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,6 +26,8 @@ class DatabaseSeeder extends Seeder
         Category::factory(3)->create();
         Project::factory(5)->create();
         Employee::factory(5)->create();
+        Role::factory(5)->create();
+        
       
 
         // User::factory()->create([

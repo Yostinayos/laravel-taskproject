@@ -46,12 +46,18 @@ class User extends Authenticatable
         ];
     }
 
-   
-public function  projects(){
+
+    public function  projects()
+    {
         return $this->hasMany(Project::class);
     }
-    public function employees(){
+    public function employees()
+    {
         return $this->hasMany(Employee::class);
+    }
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role', 'role');
+    }
     
-}
 }
