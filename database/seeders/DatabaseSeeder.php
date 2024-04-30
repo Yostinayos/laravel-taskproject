@@ -7,6 +7,7 @@ use App\Models\Customer;
 use App\Models\Employee;
 use App\Models\Project;
 use App\Models\Role;
+use App\Models\Task;
 use App\Models\User;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
         Project::factory(5)->create();
         Employee::factory(5)->create();
         Role::factory(5)->create();
+        Task::factory(15)->create();
         
       
 

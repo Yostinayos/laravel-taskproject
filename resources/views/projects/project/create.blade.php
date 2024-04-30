@@ -15,7 +15,7 @@
         @endif
             <div class="flex flex-col gap-3">
                 <label class="w-full max-w-xs form-control">Name
-                    <input type="text" name='name' placeholder="name" value="{{   @old('c')??$project->name  }}"
+                    <input type="text" name='name' placeholder="name" value="{{   @old('name')??$project->name  }}"
                         class="w-full max-w-xs mt-2 text-black bg-gray-200 dark:bg-gray-600 input input-bordered" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </label>

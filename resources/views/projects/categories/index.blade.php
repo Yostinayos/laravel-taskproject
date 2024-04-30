@@ -1,16 +1,18 @@
-@section('title','Categories')
-       
+\
+
+@section('title', 'Categories')
+
 <x-app-layout>
+    <h2 class='px-4 py-3 mt-3'>All Categories</h2>
+ @if(session('success'))
+ <h3 class="alert alert-success"> {{ session('success')}}
+      
+ </h3>
+ @endif
+    @php
+        $columns = ['category'];
+    @endphp
 
-@foreach($categories as $category)
-category : {{ $category->category }}
-<form action="{{ route('categories.destroy', $category->id) }}" method="post" class='btn btn-secondary'>
-    @csrf
-    @method('delete')
-    <button><i class="fa fa-trash"></i></button>
+    <x-data-table :data="$categories" :columns="$columns" route='' routes='categories' />
 
-</form>
-    <br>
-@endforeach
-<a href={{ route("categories.create")}} class="btn btn-info md:btn-wide "> Create category </a>
 </x-app-layout>

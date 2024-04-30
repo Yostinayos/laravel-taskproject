@@ -1,5 +1,5 @@
 
-  @props(['data', 'columns','route','routes'])
+  @props(['data', 'columns','route','routes'=>''])
   <div class="p-3 overflow-x-auto">
 <table class="table">
     <thead>
@@ -7,12 +7,15 @@
             @foreach($columns as $column)
                 <th class="font-bold dark:text-white">{{ ucfirst($column) }}</th>
             @endforeach
-            @if($route)
+           
             <th class="font-bold dark:text-white">Action</th>
-            @endif
+            
         </tr>
     </thead>
     <tbody>
+        @php
+            
+        @endphp
         @foreach($data as $item)
         <tr>
             @foreach($columns as $column)
@@ -30,7 +33,7 @@
                 <form action="{{route($routes.'.destroy', $item->id)}}" method="post" class="inline-block" >
                     @csrf
                     @method('DELETE')
-                <button class='btn btn-neutral'> <i class="fa fa-trash"></i></button>    
+                <button class='btn btn-neutral mt-3'> <i class="fa fa-trash"></i></button>    
                 </form>
               
         

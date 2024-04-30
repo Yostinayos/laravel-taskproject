@@ -45,5 +45,35 @@
             </div>
       </div>
   </div>
+
+  <div class="text-gray-400 bg-white card w-96 dark:bg-gray-900 dark:text-white">
+    <div class="items-center text-center card-body">
+        <h2 class="card-title">Tasks!</h2>
+        <p class="text-gray-950 dark:text-white">98</p>
+        <div class="justify-end card-actions">
+          <a href="tasks">
+            <button class="text-white border-none btn blue">List</button>
+          </a>
+          <a href="tasks/create">
+            <button class="text-white border-none btn green dark:text-white">Create</button>
+          </a>              
+          </div>
+    </div>
+</div>
+  <div class="text-gray-400 bg-white card w-96 dark:bg-gray-900 dark:text-white">
+    <div class="items-center text-center card-body">
+        <h2 class="card-title">Roles!</h2>
+        <p class="text-gray-950 dark:text-white">98</p>
+        <div class="justify-end card-actions">
+          <a href="roles">
+            <button class="text-white border-none btn blue">List</button>
+          </a>
+          <a href="roles/create">
+            <button class="text-white border-none btn green dark:text-white">Create</button>
+          </a>              
+          </div>
+    </div>
+</div>
+
     </div>
 </x-app-layout>
