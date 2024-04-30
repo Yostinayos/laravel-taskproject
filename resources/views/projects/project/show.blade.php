@@ -1,36 +1,37 @@
 @section('title',' project')
 <x-app-layout >
-    <div class="container mt-3 py-3 px-4">
-        <div className="card w-96 bg-base-100 shadow-xl">
-            <div className="card-body">
-               
-               
-              <b className="card-title "> project name :   {{ $project->name }}</b>
-              <p>  project description:  {{ $project->description }}</p>
-              <h2 className="card-body"> project leader:  {{ $project->user->name }}</h2>
-              <h2 className="card-body">  customer:   {{ $project->customer->name }}</h2>
-              <h2 className="card-body"> customer email:{{ $project->customer->email }}</h2>
-              <h2 className="card-body"> starting_date:  {{ $project->starting_date }}</h2>
-              <h2 className="card-body">  ending_date:{{ $project->ending_date }}</h2>
-              <div className="card-actions justify-end ">
-                <div class="col-span-2 mr-2 mt-3 mb-4">
-                            
-                    <a href='{{route("projects.edit", $project->id)}}' class='btn btn-neutral'>
-                        <i class="fa fa-pencil"></i>
-                    </a>
-
-                    
-                
-            </div>
-            <form action="{{ route('projects.destroy', $project) }}" method="post">
-                @csrf
-                @method('delete')
-                <button class='btn btn-socandary'><i class="fa fa-trash text-red-500"></i></button>
-            </form>
-            </div>
-            </div>
-            </div>
-            </div>
-
+   <div class="grid grid-cols-12 gap-3 p-5 mx-4 my-4 bg-white rounded dark:bg-gray-950 dark:text-white">
+        <div class="col-span-6">
+            Team leader pic
+        </div>
+        <div class="col-span-2 ">
+        start date & end date
+     </div>
+     <div class="col-span-4 ">
+      customer
+   </div>
+   </div>
+   <h2 class="">Tasks on proccess</h2>
+<div class="grid grid-cols-12 p-5 mx-4 my-4 bg-white rounded dark:bg-gray-950 dark:text-white">
+   <div class="col-span-12">
+    task
+</div>
+</div>
+<div class="grid grid-cols-12 p-5 mx-4 my-4 bg-white rounded dark:bg-gray-950 dark:text-white">
+   <div class="col-span-12">
+    task
+</div>
+</div>
+<h2 class="">Tasks finished</h2>
+<div class="grid grid-cols-12 p-5 mx-4 my-4 bg-white rounded dark:bg-gray-950 dark:text-white">
+   <div class="col-span-12">
+    task
+</div>
+</div>
+<div class="grid grid-cols-12 p-5 mx-4 my-4 bg-white rounded dark:bg-gray-950 dark:text-white">
+   <div class="col-span-12">
+    task
+</div>
+</div>
    
 </x-app-layout >
