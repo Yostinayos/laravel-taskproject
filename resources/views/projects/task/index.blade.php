@@ -7,10 +7,7 @@
       
  </h3>
  @endif
-@foreach($tasks as $task)
-{{$task->category->category}}
-{{$task->project->name}}
-@endforeach
+
 
     @php
         $columns = ['title', 'description', 'starting_date', 'ending_date' ];
