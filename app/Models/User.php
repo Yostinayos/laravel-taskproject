@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-
+    // protected $append=['tasks'];
     /**
      * The attributes that are mass assignable.
      *
@@ -59,5 +59,13 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class, 'role', 'role');
     }
+    // public function tasks(){
+    //     return $this->hasMany(TaskMember::class);
+    // }
+    // public function getTasksAttribute(){
+    //     $task = $this->tasks()->get();
+        
+    //     return ['hi','hello'];
+    // }
     
 }

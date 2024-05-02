@@ -8,7 +8,7 @@ use App\Http\Requests\Projects\UpdateTaskRequest;
 use App\Models\Category;
 use App\Models\Project;
 use App\Models\Task;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -17,8 +17,23 @@ class TaskController extends Controller
      */
     public function index()
     {
+        // $ts = Auth::user()->name;
+
         $tasks = Task::with('project', 'category')->get();
-        return view('projects.task.index', compact('tasks'));
+        $data = [];
+        foreach($tasks as $task){
+            $data[] =(object)[
+                "id" => $task->id,
+                "title" => $task->title,
+                "description" => $task->description,
+                "starting_date" => $task->starting_date,
+                "ending_date" => $task->ending_date,
+                "category" => $task->category->category,
+                "project" => $task->project->name
+            ];
+        }
+        // return $ts;
+        return view('projects.task.index', compact('data'));
     }
 
     /**

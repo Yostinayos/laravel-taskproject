@@ -33,7 +33,7 @@
                 <form action="{{route($routes.'.destroy', $item->id)}}" method="post" class="inline-block" >
                     @csrf
                     @method('DELETE')
-                <button class='btn btn-neutral mt-3'> <i class="fa fa-trash"></i></button>    
+                <button class='mt-3 btn btn-neutral'> <i class="fa fa-trash"></i></button>    
                 </form>
               
         

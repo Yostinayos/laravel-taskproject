@@ -1,8 +1,13 @@
 @section('title','Dashboard')
        
 <x-app-layout>
-   
-    <div class="py-12" style="height: 2000px">
+
+    @php
+    //    $tasks = Auth::user()->tasks;
+@endphp
+
+
+<div class="py-12" style="height: 2000px">
         
         <div class="mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">

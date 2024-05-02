@@ -7,16 +7,13 @@
       
  </h3>
  @endif
-@foreach($tasks as $task)
-{{$task->category->category}}
-{{$task->project->name}}
-@endforeach
+
 
     @php
-        $columns = ['title', 'description', 'starting_date', 'ending_date' ];
+        $columns = ['title', 'description', 'starting_date', 'ending_date','project','category' ];
         
     @endphp
 
-    <x-data-table :data="$tasks" :columns="$columns" route='tasks' />
+    <x-data-table :data="$data" :columns="$columns" route='tasks' />
 
 </x-app-layout>
