@@ -5,9 +5,11 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Employee;
+use App\Models\Member;
 use App\Models\Project;
 use App\Models\Role;
 use App\Models\Task;
+use App\Models\TaskMember;
 use App\Models\User;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -29,6 +31,8 @@ class DatabaseSeeder extends Seeder
         Employee::factory(5)->create();
         Role::factory(5)->create();
         Task::factory(15)->create();
+        Member::factory(5)->create();
+        TaskMember::factory(5)->create();
         
       
 
