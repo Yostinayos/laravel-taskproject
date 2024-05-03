@@ -59,13 +59,12 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class, 'role', 'role');
     }
-    // public function tasks(){
-    //     return $this->hasMany(TaskMember::class);
-    // }
-    // public function getTasksAttribute(){
-    //     $task = $this->tasks()->get();
-        
-    //     return ['hi','hello'];
-    // }
+
+    public function members(){
+        return $this->hasMany(Member::class);
+    }
+    public function taskMembers(){
+        return $this->hasMany(TaskMember::class);
+    }
     
 }
